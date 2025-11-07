@@ -63,6 +63,40 @@ $superheroes = [
   ], 
 ];
 
+// To support search in AJAX
+if (isset($_GET['query'])) {
+    $q = trim($_GET['query']);
+    $qLower = mb_strtolower($q);
+
+    if ($q === '') {
+        echo "<ul>";
+        foreach ($superheroes as $hero) {
+            echo "<li>{$hero['alias']}</li>";
+        }
+        echo "</ul>";
+        exit;
+    }
+
+    $found = null;
+    foreach ($superheroes as $hero) {
+        if (mb_stripos($hero['alias'], $q, 0, 'UTF-8') !== false ||
+            mb_stripos($hero['name'], $q, 0, 'UTF-8') !== false) {
+            $found = $hero;
+            break;
+        }
+    }
+
+    if ($found) {
+        echo "<h3>{$found['alias']}</h3>";
+        echo "<h4>{$found['name']}</h4>";
+        echo "<p>{$found['biography']}</p>";
+    } else {
+        echo "Superhero not found";
+    }
+    exit;
+}
+
+
 ?>
 
 <ul>
