@@ -95,7 +95,11 @@ if (isset($_GET['query'])) {
     }
     exit;
 }
-
+echo "<ul>";
+foreach ($superheroes as $hero) {
+    echo "<li>{$hero['alias']}</li>";
+}
+echo "</ul>";
 
 
 ?>
