@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers Character Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--Header Section-->
+    <header>
+        <h1>Avengers Character Search</h1>
+    </header>
+
+    <!--Search Section-->
+    <main>
+        <section class="search-Box">
+            <label for="q">Search by Full Name or Alias</label>
+            <div class="input-grp">
+                <input type="text" id="q" placeholder="e.g Hulk or Bruce Banner" />
+                <!-- Single Search button: fetches from superheroes.php and renders result in #result -->
+                <button id="searchBtn">Search</button>
+            </div>
+        </section>
+
+        <!--Results Section-->
+        <section class="result-Box">
+            <h2>Search Results</h2>
+            <div id="resultsContainer" aria-live="polite">
+                <div id="result"></div>
+            </div>
+        </section>
+
+    </main>
+    <script src="apps.js"></script>
+</body>
+
+</html>
